@@ -9,7 +9,7 @@ if (n % 4 === 0) {
     result = result + ' long';
   }
   result = result + ' int';
-  console.log(result.trim());
+  console.log(result);
 }
 
 else {
@@ -18,5 +18,5 @@ else {
     result = result + ' long';
   }
   result = result + ' int';
-  console.log(result.trim());
+  console.log(result);
 }
