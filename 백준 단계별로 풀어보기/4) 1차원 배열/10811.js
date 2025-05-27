@@ -8,6 +8,6 @@ let arr = new Array(N).fill().map((arr, i) => {
 
 for (let a = 1; a <=M; a++) {
   const [i,j] = init[a].split(" ").map(Number);
-  if (a === M){}
+  const temp = j - i;
   
 }
