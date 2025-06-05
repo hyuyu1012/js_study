@@ -24,5 +24,11 @@ const arr6 = new Array('1');
 console.log(arr6);
 
 
-const arr7 = new Array().fill(0);
+const arr7 = new Array(2).fill(0);
 console.log(arr7);
+
+const arr8 = new Array('2').fill(1);
+console.log(arr8);
+
+const arr9 = new Array(14).fill(0).map((v,i) => i+1);
+console.log(arr9);
