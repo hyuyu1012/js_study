@@ -32,3 +32,5 @@ console.log(arr8);
 
 const arr9 = new Array(14).fill(0).map((v,i) => i+1);
 console.log(arr9);
+
+// 이차원 배열
