@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #my_layout {
+      width: 450px;
+      height: 200px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 50px);
+    }
+
+    .box {
+      padding: 15px;
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .box1 {
+      background-color: #3689ff;
+      grid-row: 1 / 5;
+      grid-column: 1 / 2;
+    }
+
+    .box2 {
+      background-color: #00cf12;
+      grid-row: 1 / 2;
+      grid-column: 2 / 4;
+    }
+
+    .box3 {
+      background-color: #ff9019;
+      grid-row: 2 / 3;
+      grid-column: 2 / 4;
+    }
+
+    .box4 {
+      background-color: #ffd000;
+      grid-row: 1 / 4;
+      grid-column: 4 / 5;
+    }
+
+    .box5 {
+      background-color: #00ffff;
+      grid-row: 4 / 5;
+      grid-column: 1 / 5;
+    }
+  </style>
+</head>
+<body>
+  <div id="my_layout">
+    <div class="box box1">홍길동1</div>
+    <div class="box box2">홍길동2</div>
+    <div class="box box3">홍길동3</div>
+    <div class="box box4">홍길동4</div>
+    <div class="box box5">홍길동5</div>
+  </div>
+</body>
+</html>
