@@ -7,5 +7,18 @@
 <input type="text" value="키보드 눌림"><p>
 <input type="text" value="마우스 더블클릭"><p>
 <input type="text" value="마우스 들어옴">
+
+<script>
+	const btn_list = document.querySelectorAll("input");
+	btn_list[0].addEventListener("keydown", () => {
+		alert("키보드가 눌렸습니다.");
+	});
+	btn_list[1].addEventListener("dblclick", () => {
+		alert("마우스를 더블클릭했습니다.");
+	})
+	btn_list[2].addEventListener("mouseenter", () => {
+		alert("마우스가 들어왔습니다.");
+	})
+</script>
 </body>
 </html>  

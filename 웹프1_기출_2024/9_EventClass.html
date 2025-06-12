@@ -9,6 +9,14 @@
 <script>
 	const twoevent = document.getElementById("gildong");
 //  addEventListener() 메서드를 이용하여 마우스아웃 이벤트 처리 코드 작성
+  twoevent.addEventListener('mouseout', () => {
+    outEv();
+  })
+  twoevent.addEventListener('dblclick', () => {
+    dblEv();
+  })
+
+
 //  addEventListener() 메서드를 이용하여 더블클릭 이벤트 처리 코드 작성
     function outEv() {
       document.write("마우스아웃 이벤트 발생")
