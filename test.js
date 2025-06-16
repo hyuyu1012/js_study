@@ -1,1 +1,4 @@
-arr = [1,1,9,1,1,1];
+const string = function () {
+  return "hello";
+}
+console.log(string);
