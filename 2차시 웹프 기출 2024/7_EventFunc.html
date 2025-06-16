@@ -7,12 +7,14 @@
 	<button id="gildong">글자색 변경</button>
 	<u>강릉원주대</u><u>컴퓨터공학과</u>
 	<script>
-	const update = 'red';
-	document.querySelector('u') = update;
+
+	document.querySelector('#gildong').onclick = update;
 		
-		function {
-       document.querySelectorAll();
-    }
+		function update() {
+      const u_list = document.querySelectorAll('u');
+			u_list[0].style.color ="red";
+			u_list[1].style.color = "blue";
+		}
 	</script>
 </body>
 </html>  
