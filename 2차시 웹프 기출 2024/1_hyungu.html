@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    fieldset {
+      padding: 30px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <fieldset>
+      <legend>멤버 등록</legend>
+      - ID <input type="text" placeholder="한현구"><br>
+      - 패스워드 <input type="password" placeholder="특수문포함 10자"><br>
+      - 이메일 <input type="email"> <br>
+      - 가전 제품 
+      <label><input type="checkbox" name="hyungu">TV</label>
+      <lable><input type="checkbox" name="hyugnu">냉장고</lable>
+      <label><input type="checkbox" name="hyungu">세탁기</label>
+      <label><input type="checkbox" name="hyungu" checked>청소기></label>
+      <br>
+      - 운동 경기
+      <select>
+        <option value="default">종목선택</option>
+        <option value="축구">축구</option>
+        <option value="농구">농구</option>
+        <option value="배구">배구</option>
+      </select>
+      <br>
+      - 성별 :
+      <label><input type="radio" name="sex" value="male" checked>남</label>
+      <label><input type="radio" name="sex" value="female">여</label>
+      <br>
+      - 건의사항 : 
+      <br>
+      <textarea cols="40" rows="3"></textarea>
+      <br>
+      <input type="submit" value="멤버등록">
+      <input type="reset" value="등록취소">
+    </fieldset>
+  </form>
+</body>
+</html>
