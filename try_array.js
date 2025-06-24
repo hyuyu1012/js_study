@@ -1,11 +1,6 @@
-const x = {
-  value : 3,
-}
-console.log(x.value);
-
-function byRefer(y) {
-  y.value = y.value * 5;
-}
-
-byRefer(x)
-console.log(x.value);
+const scores = [2, 3, 10, 1, 100];
+scores.sort((a, b) => {
+  console.log(a,b);
+  return a - b
+});
+console.log(scores); // [1, 2, 3, 10, 100]
