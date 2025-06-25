@@ -1,3 +1,2 @@
-init.forEach(s => {
-//   s.split(" ");
-// })
+
+arr2.forEach(number => {
