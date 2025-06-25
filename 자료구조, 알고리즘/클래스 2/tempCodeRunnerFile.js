@@ -1,2 +1,2 @@
 
-arr2.forEach(number => {
+  return result;
