@@ -1,3 +1,6 @@
+// 재귀함수 방식을 이용하여 이진탐색을 구현하였다.
+// 최적화 필요
+
 // 테스트용 배열
 const arr = [1,2,3,4,5,6,7,8,9,10];
 const arr2 = [1,2,3,4];
@@ -6,7 +9,7 @@ const number = 11;
 // 함수 선언(재귀 함수)
 function binarySearch(arr, low, mid, high, number) {
   console.log(`mid : ${mid}....`)
-
+  
   // 종료조건
   if(low > high) {
     return -1;
