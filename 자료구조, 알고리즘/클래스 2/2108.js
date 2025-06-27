@@ -1,4 +1,5 @@
-const { count } = require('console');
+// map 자료형으로도 풀어보자
+// const { count } = require('console');
 const fs = require('fs');
 const init = fs.readFileSync("example.txt").toString().trim().split("\n").map(Number);
 const n = init.shift();
@@ -36,7 +37,19 @@ function findMode() {
     }
   });
 
-  Math.max(Object.keys(countObj))
+  const maxValue = Math.max(...Object.values(countObj).map(Number));
+  const haveMaxValueList = Object.entries(countObj).filter((arr) => arr[1] === maxValue);
+  haveMaxValueList.sort((a,b) => { 
+  });
+
+  console.log(haveMaxValueList);
+  if (haveMaxValueList.length === 1) {
+    console.log(Number(haveMaxValueList[0][0]))
+  }
+  else {
+    console.log(Number(haveMaxValueList[1][0]));
+  }
+  
 }
 
 function findRange() {
