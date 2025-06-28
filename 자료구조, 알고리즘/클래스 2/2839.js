@@ -1,27 +1,21 @@
 const fs = require('fs');
-const n = parseInt(fs.readFileSync("example.txt").toString().trim());
-const result = [];
+let number = Number(fs.readFileSync(0).toString().trim());
+const result = []
 
-if (n % 3 === 0) {
-  if(n % 5 === 0) {
-    result.push(n/5);
+let count = 0;
+
+while(number > 0) {
+  if(number % 5 === 0) {
+    console.log(count + number /5);
+    break;
   }
-  else{
-    result.push(n/3);
+  number = number - 3;
+  count = count + 1;
+
+  if (number === 0) {
+    console.log(count);
   }
-}
-
-if((n % 5) % 3 === 0) {
-  result.push(Math.trunc(n/5) + (n % 5)/3);
-}
-
-if((n % 3) % 5 === 0){
-   result.push(Math.trunc(n/3) + (n % 3)/5);
- }
-
-if (result.length === 0 ) {
-  console.log(-1);
-}
-else {
-  console.log(Math.min(...result));
+  else if (number < 0) {
+    console.log(-1);
+  }
 }
