@@ -1,6 +1,2 @@
-a = -0 
-
-
-if(a === -0) {
-  console.log(a*-1);
-}
+console.log(isNaN('123'));
+console.log(isNaN('123ab')); //
