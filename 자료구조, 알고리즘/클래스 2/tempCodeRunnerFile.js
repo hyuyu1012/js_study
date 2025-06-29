@@ -1,63 +1,21 @@
-// map 자료형으로도 풀어보자
-// const { count } = require('console');
 const fs = require('fs');
 const init = fs.readFileSync("example.txt").toString().trim().split("\n").map(Number);
 const n = init.shift();
+init.sort((a,b) => { return a-b });
 
-// 중앙값을 찾기 위해서 정렬
-init.sort((a,b) => {
-  return a - b;
-});
 
-// 안전범위 안이니 Number형으로 진행해도됨
-function FindMean() {
-  const initValue = 0;
-  const sum = init.reduce((accumulator, currentValue) => accumulator + currentValue, initValue);
-  const mean = (sum/n).toFixed(0)
-  console.log(mean)
-}
+//아무 의견이 없다면 문제의 난이도는 0으로 결정한다. // 의견이 하나 이상 있다면 문제의 난이도는 모든 사람의 난이도 의견에 30% 절사ㅕ평균
+const temp = Math.round(n * (15/100));
+const people = n - 2 * temp;
 
-function FindMedian() {
-  if (init.length === 1) {
-    console.log(init[0]);
-  }
-  else {
-    console.log(init[(init.length - 1)/2]);
-  }
-}
 
-function findMode() {
-  const countObj = {};
-  init.forEach((number) => {
-    if(String(number) in countObj) {
-      countObj[number] +=1;
-    }
-    else{
-      countObj[number] = 1;
-    }
-  });
+const start = temp;
+const end = init.length - 2 - temp;
+const newArr = init.splice(start, end)
 
-  const maxValue = Math.max(...Object.values(countObj).map(Number));
-  const haveMaxValueList = Object.entries(countObj).filter((arr) => arr[1] === maxValue);
-  haveMaxValueList.sort((a,b) => {
-    return Number(a[0]) - Number(b[0]); 
-  });
+const sum = newArr.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue
+}, 0);
 
-  // console.log(haveMaxValueList);
-  if (haveMaxValueList.length === 1) {
-    console.log(Number(haveMaxValueList[0][0]))
-  }
-  else {
-    console.log(Number(haveMaxValueList[1][0]));
-  }
-  
-}
 
-function findRange() {
-  console.log(init[init.length - 1] - init[0]);
-}
-
-FindMean();
-FindMedian();
-findMode();
-findRange();
+console.log(Math.round(sum/people));
