@@ -28,7 +28,6 @@ class DoubleLinkedList {
     }
   }
 
-
   // 중간 삽입 연산
   insertMiddleNode(data,index) {
     if(index < 0 || index > this.length) {
@@ -64,6 +63,16 @@ class DoubleLinkedList {
     this.tail = newNode;
     this.length++;
   }
+
+  printList() {
+    const result = [];
+    let current = this.head;
+    while(current !== null) {
+      result.push(current.data);
+      current = current.next;
+    }
+    console.log(result.join(" "));
+  }
 }
 
 const test = new DoubleLinkedList();
@@ -71,4 +80,4 @@ test.insertFirstNode(1);
 test.insertFirstNode(3);
 test.insertMiddleNode(2 , 1);
 test.insertLastNode(4)
-console.log(test);
+test.printList();
