@@ -17,7 +17,8 @@ class LinkedList{
     this.length++;
   }
 
-  // insertLastNode(data) {
+  // 시간복잡도를 줄일 것이 아니라면, 굳이 마지막 삽입 연산을 구현할 필요는 없다. 마지막 삽입연산은 tail을 이용한다.
+  //insertLastNode(data) {
     // const newNode = new Node(data);
     // this.length;
   // }
@@ -27,12 +28,16 @@ class LinkedList{
     if(index < 0) {
       console.log("index가 음수이면 삽입이 불가능합니다.")
     }
+    if(index > this.length) {
+      console.log(`잘못된 범위입니다. 현재 리스트의 길이는 ${this.length} 입니다.`);
+    }
     else if (index === 0) {
       return this.insertFirstNode(data);
     }
     // else if (index === this.length) {
       // return this.insertLastNode(data);
     // }
+
     // 실제 중간 삽입 알고리즘
     else {
       const newNode = new Node(data);
@@ -49,10 +54,25 @@ class LinkedList{
       console.log(`${index} 위치에 삽입이 완료되었습니다.`)
     }
   }
+
+  // 연결리스트 데이터 출력
+  printList(){
+    const result = [];
+    let current = this.head;
+    // 길이만큼 출력 or 노드의 마지막 링크가 null 이면 출력 중단
+    while(current !== null) {
+      result.push(current.data);
+      current = current.link;
+      // currentData = current.data;
+    
+    }
+    console.log(result.join(" "));
+  }
 } 
 
-const testLinkedList = new LinkedList();
-testLinkedList.insertFirstNode(1);
-testLinkedList.insertMiddleNode(2,1);
-testLinkedList.insertMiddleNode(3,1);
-console.log(testLinkedList);
+const testList = new LinkedList();
+testList.insertFirstNode(1);
+testList.insertMiddleNode(1,1);
+testList.insertMiddleNode(2,2);
+
+testList.printList();
