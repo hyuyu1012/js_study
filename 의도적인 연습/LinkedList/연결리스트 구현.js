@@ -9,11 +9,22 @@ class LinkedList{
     this.head = null;
     this.length = 0;
   }
-  // 맨 앞 인덱스에 노드 삽입
+  // 맨 앞 인덱스에 노드 삽입 
   insertFirstNode(data) {
     const newNode = new Node(data);
-    this.head = newNode;
-    this.length++;
+    
+    if(this.length === 0) {
+      this.head = newNode;
+      this.length++;
+    }
+    else {
+      newNode.link = this.head
+      console.log(this.head);
+      this.head = newNode;
+      console.log(this.head);
+      this.length++;
+    }
+    
   }
 
   // 시간복잡도를 줄일 것이 아니라면, 굳이 마지막 삽입 연산을 구현할 필요는 없다. 마지막 삽입연산은 tail을 이용한다.
@@ -136,11 +147,13 @@ class LinkedList{
 
 const testList = new LinkedList();
 testList.insertFirstNode(1);
-testList.insertMiddleNode(1,1);
-testList.insertMiddleNode(2,2);
+testList.insertFirstNode(2);
+//data, index
+testList.insertMiddleNode(3,1);
+testList.insertMiddleNode(4,2);
 testList.printList();
 // testList.searchNode(5);
 // testList.searchNode(2);
-testList.deleteNode(1)
-testList.printList();
-testList.deleteNode(5)
+// testList.deleteNode(1)
+// testList.printList();
+// testList.deleteNode(5)
