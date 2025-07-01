@@ -4,13 +4,12 @@ class Node{
     this.link = link;
   }
 }
-
 class LinkedList{
   constructor() {
-    this.head = null; // 데이터가 없는 처음, head에 담긴 값은 null이다.
+    this.head = null;
     this.length = 0;
   }
-  // 첫번째 노드로 삽입하는 연산
+  // 맨 앞 인덱스에 노드 삽입
   insertFirstNode(data) {
     const newNode = new Node(data);
     this.head = newNode;
@@ -18,12 +17,13 @@ class LinkedList{
   }
 
   // 시간복잡도를 줄일 것이 아니라면, 굳이 마지막 삽입 연산을 구현할 필요는 없다. 마지막 삽입연산은 tail을 이용한다.
-  //insertLastNode(data) {
-    // const newNode = new Node(data);
-    // this.length;
-  // }
+  insertLastNode(data) {
+     const newNode = new Node(data);
+     this.length;
+   
+  }
 
-  // 중간에 삽입(인덱스를 기준으로? 데이터를 기준으로?)
+  // 중간 노드 삽입 알고리즘
   insertMiddleNode(data, index) {
     if(index < 0) {
       console.log("index가 음수이면 삽입이 불가능합니다.")
@@ -31,14 +31,13 @@ class LinkedList{
     if(index > this.length) {
       console.log(`잘못된 범위입니다. 현재 리스트의 길이는 ${this.length} 입니다.`);
     }
+    // 인덱스가 0이거나 length이면 처음, 마지막 삽입 함수 호출
     else if (index === 0) {
       return this.insertFirstNode(data);
     }
     // else if (index === this.length) {
       // return this.insertLastNode(data);
     // }
-
-    // 실제 중간 삽입 알고리즘
     else {
       const newNode = new Node(data);
       let count = 0;
@@ -54,17 +53,46 @@ class LinkedList{
       console.log(`${index} 위치에 삽입이 완료되었습니다.`)
     }
   }
+  // 노드 삭제 알고리즘
+  // 삭제는 인덱스 기반이 아닌 데이터 기반으로 진행한다.
 
-  // 연결리스트 데이터 출력
+  deleteNode(){
+
+  }
+  // 데이터 검색
+  searchNode(data) {
+    let current = this.head;
+    let count = 0;
+    let resultIndex = null;
+
+    while(current !== null) {
+      if(current.data === data) {
+        resultIndex = count;
+        break;
+      }
+      count++;
+      current = current.link;
+    }
+
+    if(resultIndex === null) {
+      console.log("리스트에 해당 데이터가 없습니다.");
+    }
+    else {
+      console.log(`해당 data가 위치한 index는 ${resultIndex}입니다.`);
+    }
+    
+    return resultIndex;
+  }
+
+
+  // 연결리스트 출력
   printList(){
     const result = [];
     let current = this.head;
-    // 길이만큼 출력 or 노드의 마지막 링크가 null 이면 출력 중단
+    // 노드가 Null이 아닐 때까지 노드 출력
     while(current !== null) {
       result.push(current.data);
       current = current.link;
-      // currentData = current.data;
-    
     }
     console.log(result.join(" "));
   }
@@ -74,5 +102,6 @@ const testList = new LinkedList();
 testList.insertFirstNode(1);
 testList.insertMiddleNode(1,1);
 testList.insertMiddleNode(2,2);
-
 testList.printList();
+testList.searchNode(5);
+testList.searchNode(2);
