@@ -9,13 +9,15 @@ class Node {
 class DoubleLinkedList {
   constructor() {
     this.head = null;
+    this.tail = null;
     this.length = 0;
   }
 
   insertFirstNode(data) {
-    const newNode = new Node(data, null, null);
+    const newNode = new Node(data);
     if(this.length === 0) {
       this.head = newNode;
+      this.tail = newNode;
       this.length++;
     }
     else {
@@ -26,6 +28,7 @@ class DoubleLinkedList {
     }
   }
 
+
   // 중간 삽입 연산
   insertMiddleNode(data,index) {
     if(index < 0 || index > this.length) {
@@ -34,15 +37,15 @@ class DoubleLinkedList {
     }
 
     if(index === 0) {
-      return this.insertFirstNode();
+      return this.insertFirstNode(data);
     }
     
     let count = 0;
     let currentNode = this.head;
     let nextNode = this.head.next;
-
     const newNode = new Node(data);
-    //preNode를 찾아서 연산을 한다.
+
+    //currentNode(preNode가 될 노드)를 찾아서 연산을 한다. 끝 연산이 없는데?
     while(count < index - 1) {
       currentNode = currentNode.next;
       nextNode = currentNode.next;
@@ -52,12 +55,20 @@ class DoubleLinkedList {
     newNode.prev = currentNode;
     newNode.next = nextNode;
     nextNode.prev = newNode;
+    this.length++;
   }
-
+  insertLastNode(data) {
+    const newNode = new Node(data);
+    this.tail.next = newNode;
+    newNode.prev = this.tail;
+    this.tail = newNode;
+    this.length++;
+  }
 }
 
 const test = new DoubleLinkedList();
 test.insertFirstNode(1);
-test.insertFirstNode(2);
-// test.insertMiddleNode(3,2)
+test.insertFirstNode(3);
+test.insertMiddleNode(2 , 1);
+test.insertLastNode(4)
 console.log(test);
