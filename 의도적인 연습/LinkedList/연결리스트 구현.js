@@ -149,8 +149,8 @@ const testList = new LinkedList();
 testList.insertFirstNode(1);
 testList.insertFirstNode(2);
 //data, index
-testList.insertMiddleNode(3,1);
-testList.insertMiddleNode(4,2);
+testList.insertMiddleNode(3,2);
+testList.insertMiddleNode(4,3);
 testList.printList();
 // testList.searchNode(5);
 // testList.searchNode(2);
