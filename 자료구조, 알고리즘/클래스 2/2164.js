@@ -1,8 +1,5 @@
-const fs = require('fs');
-const n = Number(fs.readFileSync("example.txt").toString().trim());
-
 class Node{
-  constructor(data, prev, next){
+  constructor(data){
     this.data = data;
     this.prev = null;
     this.next = null;
@@ -76,6 +73,60 @@ class DoubleLinkedList {
     this.length++;
   }
 
+  delete(data) {
+    if(this.head === null) {
+      console.log("리스트가 비어있습니다.");
+      return;
+    }
+    else if(this.head.data === data) {
+      return this.deleteFirst();
+    }
+    else if(this.tail.data=== data) {
+      return this.deleteLast();
+    }
+    else {
+      return this.deleteMiddle(data);
+    }
+  }
+
+  deleteFirst() {
+    const nextNode = this.head.next;
+    nextNode.prev = null;
+    this.head = nextNode;
+    this.length--;
+  }
+
+  deleteLast() {
+    const prevNode = this.tail.prev;
+    prevNode.next = null;
+    this.tail = prevNode;
+    this.length--;
+  }
+
+  deleteMiddle(data) {
+    // 첫 노드 삭제 연산은 구현되어 있으니 다음 노드부터
+    let current = this.head;
+    for (let i = 0; i < this.length; i++) {
+      if(current.data === data) {
+        // const와 let은 블록 단위 scope이다.
+        const prevNode = current.prev;
+        const nextNode = current.next;
+        
+        prevNode.next = nextNode;
+        nextNode.prev = prevNode;
+        
+        this.length--;
+        return true;
+      }
+
+      current = current.next;
+    }  
+
+    console.log("해당 데이터가 없습니다.");
+    return false;
+  }
+    
+
   printList(){
     const result = [];
     let current = this.head;
@@ -116,5 +167,5 @@ list.insert(0,0);
 list.insert(0,3);
 list.insert(0.5,1);
 list.printList();
+list.printList();
 
-// while(true) {}
