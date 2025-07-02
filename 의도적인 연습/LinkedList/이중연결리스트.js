@@ -75,6 +75,7 @@ class DoubleLinkedList {
   }
 
   searchNode(data) {
+    
    let current = this.head;
    let resultIndex = null;
    let count = 0;
@@ -93,7 +94,6 @@ class DoubleLinkedList {
   else {
     console.log(`해당 data가 위치한 index는 ${resultIndex}입니다.`);
   }
-
   return resultIndex;
   }
 }
