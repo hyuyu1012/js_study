@@ -90,17 +90,31 @@ class DoubleLinkedList {
   }
 
   deleteFirst() {
-    const nextNode = this.head.next;
-    nextNode.prev = null;
-    this.head = nextNode;
-    this.length--;
+    if(this.length === 1) {
+      this.head = null;
+      this.tail = null;
+      this.length--;
+    }
+    else {
+      const nextNode = this.head.next;
+      nextNode.prev = null;
+      this.head = nextNode;
+      this.length--;
+    }
   }
 
   deleteLast() {
-    const prevNode = this.tail.prev;
-    prevNode.next = null;
-    this.tail = prevNode;
-    this.length--;
+    if(this.length === 1) {
+      this.head = null;
+      this.tail = null;
+      this.length--;
+    }
+    else {
+      const prevNode = this.tail.prev;
+      prevNode.next = null;
+      this.tail = prevNode;
+      this.length--;
+    }
   }
 
   deleteMiddle(data) {
