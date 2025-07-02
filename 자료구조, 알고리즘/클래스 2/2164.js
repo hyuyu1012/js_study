@@ -14,7 +14,22 @@ class DoubleLinkedList {
     this.tail = null;
     this.length = 0;
   }
+  insert(data, index) {
+    if(index === 0) {
+      this.insertFirst(data);
+    }
+    else if(index <  0 || index > this.length ) {
+      console.log("잘못된 범위입니다.");
+    }
 
+    else if(index === this.length) {
+      this.insertLast(data);
+    }
+    else {
+      this.insertMiddle(data, index);
+    }
+    
+  }
   insertFirst(data) {
     const newNode = new Node(data);
     if(this.length === 0) {
@@ -22,17 +37,16 @@ class DoubleLinkedList {
       this.tail = newNode;
       this.length++;  
     }
-    else{
-    newNode.next = this.head
-    this.head.prev = newNode;
-    this.head = newNode;
-    this.length++;    
-    }
+    else {
+      newNode.next = this.head
+      this.head.prev = newNode;
+      this.head = newNode;
+      this.length++;    
+      }
   }
   
   insertLast(data){
     const newNode = new Node(data);
-    let count = 0;
     let current = this.head;
     while(current.next !== null) {
       current = current.next;
@@ -96,14 +110,11 @@ class DoubleLinkedList {
 }
 
 const list = new DoubleLinkedList();
-list.insertFirst(1);
-list.insertFirst(2);
-list.insertLast(4);
-list.insertMiddle(3,2);
+list.insert(2,0);
+list.insert(1,0);
+list.insert(0,0);
+list.insert(0,3);
+list.insert(0.5,1);
 list.printList();
-list.searchNode(2);
-list.searchNode(11)
-
-
 
 // while(true) {}
