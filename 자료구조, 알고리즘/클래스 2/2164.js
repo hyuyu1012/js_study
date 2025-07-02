@@ -71,6 +71,28 @@ class DoubleLinkedList {
     }
     console.log(result.join(" "));
   }
+
+  searchNode(data) {
+    let current = this.head;
+    let resultIndex = null;
+    let count = 0;
+  
+    for(let i = 0; i < this.length; i++) {
+      if(current.data === data) {
+        resultIndex = count;
+        break;
+      }
+      current = current.next;
+      count++;
+    }
+    if(resultIndex === null) {
+      console.log("리스트에는 해당 데이터가 없습니다.");
+    }
+    else {
+      console.log(`해당 데이터의 위치는 ${resultIndex}입니다.`);
+    }
+    return resultIndex;
+  }
 }
 
 const list = new DoubleLinkedList();
@@ -79,7 +101,8 @@ list.insertFirst(2);
 list.insertLast(4);
 list.insertMiddle(3,2);
 list.printList();
-// console.log(list);
+list.searchNode(2);
+list.searchNode(11)
 
 
 
