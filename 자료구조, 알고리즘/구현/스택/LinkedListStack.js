@@ -33,12 +33,17 @@ class Stack {
   pop() {
     if(this.length === 0) {
       console.log("리스트에 데이터가 없습니다.");
+      return;
+    }
+    if(this.length === 1) {
+      this.head = null;
+      this.tail = null;
     }
     else {
       this.tail = this.tail.prev;
       this.tail.next = null;
-      this.length--;
     }
+    this.length--;
   }
 
   printAll() {
