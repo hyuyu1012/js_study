@@ -5,7 +5,6 @@ class Node {
     this.next  = null;
   }
 }
-
 class Queue {
   constructor() {
     this.head = null;
@@ -32,25 +31,43 @@ class Queue {
       console.log("리스트에 데이터가 없습니다.");
       return;
     } 
+    const temp = this.head.data;
     
     if(this.length === 1) {
       this.head = null;
       this.tail = null;
     }
+
     else {
-      this.tail = this.tail.prev;
-      this.tail.next = null;
+      this.head = this.head.next;
+      this.head.prev = null;
     }
     this.length--;
+    return temp;
   }
-  
+
   printAll() {
+    if(this.length === 0) {
+      console.log("리스트에 데이터가 없습니다.");
+      return;
+    }
 
-  }
-
-  search() {
-
+    let current = this.head;
+    const result = [];
+    while(current !== null){
+      result.push(current.data);
+      current = current.next;
+    }
+    console.log(result.join(" "));
   }
 }
 
-
+const queue = new Queue();
+queue.push(1);
+queue.push(2);
+queue.printAll();
+queue.pop();
+queue.printAll();
+queue.pop();
+queue.printAll();
+queue.pop();
