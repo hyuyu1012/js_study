@@ -1,2 +1,7 @@
 const fs = require('fs');
-const init = fs.readFileSync("example.txt").toString().trim().split("")
+const input = fs.readFileSync("example.txt").toString().trim().split("\n");
+
+
+for(let i = 1; i <= input[0]; i++){
+  
+}
