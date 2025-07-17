@@ -1,4 +1,3 @@
-const stack = [[1,2]]
-
-console.log(stack.pop()[0])
-cons
+const arr = [1,2,3];
+console.log(...arr);
+console.log([...arr]);
