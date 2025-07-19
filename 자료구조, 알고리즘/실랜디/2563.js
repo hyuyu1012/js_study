@@ -6,7 +6,6 @@ const n = Number(input[0]);
 
 for(let i = 1; i <=n; i++) {
   const temp = input[i].split(" ").map(Number);
-  console.log(temp[0],temp[1]);
   for(let j = 0; j < 10; j++) {
     for(let k = 0; k < 10; k++) {
       if(paper[temp[1] + j][temp[0] + k] === false) {
