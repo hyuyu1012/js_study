@@ -4,10 +4,17 @@ const input = fs.readFileSync("example.txt").toString().trim().split("\n");
 const [N, M] = input[0].split(" ").map(Number);
 const array = input[1].split(" ").map(Number).sort((a,b) => a-b);
 const result = [];
+const resultHash = {};
 
 const dfs = (n, arr) => {
   if(n === M) {
     const temp = arr.join(" ");
+    if(temp in resultHash) {}
+    else {
+      resultHash[temp] = true;
+      result.push(temp);
+    }
+  
     return;
   }
 
