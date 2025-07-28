@@ -5,15 +5,13 @@ const dp = [];
 dp[0] = 0;
 dp[1] = 1;
 
-let count = 1;
 for(let i = 2; i <=n; i++) {
-  if(i >= (count + 1) * (count + 1)) {
-    count = count + 1;
+  let min = 5;
+  for(let j = 1; j*j <=i; j++) {
+    const temp = i - j*j;
+    min = Math.min(min, dp[temp]);
   }
-  dp[i] = 1 + dp[i- count **2];
-  if(dp[i] > 4) {
-    dp[i] = 4;
-  }
+  dp[i] = min + 1;
 }
 
 console.log(dp[n]);
